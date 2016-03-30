@@ -32,6 +32,7 @@ Node.JS + Express + AngularJS + MongoDB のサンプルサイト
 ```
 mongo
 > use mydb
+> db.users.insert({});
 ```
 
 
