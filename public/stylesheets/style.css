@@ -1,0 +1,18 @@
+body {
+  padding-bottom: 40px;
+}
+
+#body [ng-cloak],
+#body .ng-hide { display: none !important; }
+
+.bs-callout {
+    padding: 15px;
+    margin: 0px 0px 20px 0px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout-info {
+    border-left-color: #1b809e;
+}

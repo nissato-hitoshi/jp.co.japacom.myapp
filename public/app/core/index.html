@@ -1,0 +1,42 @@
+<link href="/app/core/css/index.css" rel="stylesheet"/>
+<div class="bs-callout bs-callout-info">
+    <h3>ユーザ一覧</h3>
+</div>
+<div ng-controller="UserController as vm">
+    <a href="#" class="btn btn-sm btn-primary" ui-sref="action({ module: vm.module, page:'register', _id: null })">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新規登録
+    </a>    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>所属会社</th>
+                <th>所属グループ</th>
+                <th>ユーザID</th>
+                <th>氏名</th>
+                <th>登録日時</th>
+                <th>最終更新日時</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.users" ui-sref="action({ module: vm.module, page:'register', _id: user._id })">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ user.company }}</td>
+                <td>{{ user.group }}</td>
+                <td>{{ user.userid }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.registeredDate | date: 'yyyy/MM/dd HH:mm:ss' }}</td>
+                <td>{{ user.lastUpdated | date: 'yyyy/MM/dd HH:mm:ss' }}</td>
+                <td>
+                    <a class="btn btn-xs" ui-sref="action({ module: vm.module, page:'register', _id: user._id })">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a class="btn btn-xs" ng-click="vm.delete(user)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

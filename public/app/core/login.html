@@ -1,0 +1,17 @@
+<link href="/app/core/css/login.css" rel="stylesheet"/>
+<div class="bs-callout bs-callout-info">
+    <h3>サインイン</h3>
+</div>
+<form class="form-signin" ng-controller="LoginController as vm">
+   <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.alert">
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ vm.alert.msg }}
+   </div>
+   <label class="form-label">ユーザＩＤ</label> 
+   <input type="text" class="form-control" placeholder="ユーザＩＤ" ng-model="vm.userid" required autofocus>
+   <label class="form-label">パスワード</label> 
+   <input type="password" class="form-control" placeholder="パスワード" ng-model="vm.password" required>
+   <button class="btn btn-lg btn-primary btn-block" ng-click="vm.login()">
+       <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> サインイン
+   </button>
+</form>

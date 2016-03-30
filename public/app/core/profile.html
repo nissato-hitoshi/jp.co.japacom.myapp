@@ -1,0 +1,66 @@
+<link href="/app/core/css/profile.css" rel="stylesheet"/>
+<div class="bs-callout bs-callout-info">
+    <h3>プロフィール</h3>
+</div>
+<form class="form-horizontal" ng-controller="ProfileController as vm">
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.alert">
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ vm.alert.msg }}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">ユーザID</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="ユーザID" ng-model="vm.user.userid" disabled />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">氏名</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="氏名" ng-model="vm.user.username" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">所属会社</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="所属会社" ng-model="vm.user.company" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">所属グループ</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="所属グループ" ng-model="vm.user.group" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">メールアドレス</label> 
+        <div class="col-sm-9">
+            <input type="email" class="form-control" placeholder="メールアドレス" ng-model="vm.user.email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">ObjectId</label> 
+        <div class="col-sm-9">
+            <p class="form-control-static">{{ vm.user._id }} </p>
+        </div>
+    </div>
+    <div class="form-group" ng-show="vm.user.registeredDate">
+        <label class="col-sm-3 control-label">登録日時</label> 
+        <div class="col-sm-9">
+            <p class="form-control-static">{{ vm.user.registeredDate | date: 'yyyy/MM/dd HH:mm:ss' }} </p>
+        </div>
+    </div>
+    <div class="form-group" ng-show="vm.user.lastUpdated">
+        <label class="col-sm-3 control-label">最終更新日時</label> 
+        <div class="col-sm-9">
+            <p class="form-control-static">{{ vm.user.lastUpdated | date: 'yyyy/MM/dd HH:mm:ss' }} </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"></label> 
+        <div class="col-sm-9">
+            <button class="btn btn-lg btn-primary btn-block" ng-click="vm.update()">
+                <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> プロフィール変更
+            </button>
+        </div>
+    </div>
+</form>

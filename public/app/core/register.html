@@ -1,0 +1,91 @@
+<link href="/app/core/css/register.css" rel="stylesheet"/>
+<div class="bs-callout bs-callout-info">
+    <h3>ユーザ情報</h3>
+</div>
+<form class="form-horizontal" ng-controller="UserController as vm">
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="vm.alert">
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ vm.alert.msg }}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">ユーザID</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="ユーザID" ng-model="vm.user.userid" required autofocus />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">氏名</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="氏名" ng-model="vm.user.username" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">氏名（略称）</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="氏名（略称）" ng-model="vm.user.shortname" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">所属会社</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="所属会社" ng-model="vm.user.company" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">所属グループ</label> 
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="所属グループ" ng-model="vm.user.group" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">メールアドレス</label> 
+        <div class="col-sm-9">
+            <input type="email" class="form-control" placeholder="メールアドレス" ng-model="vm.user.email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">パスワード</label> 
+        <div class="col-sm-9">
+            <input type="password" class="form-control" placeholder="パスワード" ng-model="vm.user.password" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3"></label> 
+        <div class="col-sm-9">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="vm.user.isAdmin" > 管理者
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" ng-show="vm.user._id">
+        <label class="col-sm-3 control-label">ObjectId</label> 
+        <div class="col-sm-9">
+            <p class="form-control-static">{{ vm.user._id }} </p>
+        </div>
+    </div>
+    <div class="form-group" ng-show="vm.user.registeredDate">
+        <label class="col-sm-3 control-label">登録日時</label> 
+        <div class="col-sm-9">
+            <p class="form-control-static">{{ vm.user.registeredDate | date: 'yyyy/MM/dd HH:mm:ss' }} </p>
+        </div>
+    </div>
+    <div class="form-group" ng-show="vm.user.lastUpdated">
+        <label class="col-sm-3 control-label">最終更新日時</label> 
+        <div class="col-sm-9">
+            <p class="form-control-static">{{ vm.user.lastUpdated | date: 'yyyy/MM/dd HH:mm:ss' }} </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"></label> 
+        <div class="col-sm-9">
+            <button class="btn btn-lg btn-primary btn-block" ng-click="vm.insert()" ng-show='!vm.user._id'>
+                <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> 新規登録
+            </button>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="vm.update()" ng-show='vm.user._id'>
+                <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> 更新
+            </button>
+        </div>
+    </div>
+</form>

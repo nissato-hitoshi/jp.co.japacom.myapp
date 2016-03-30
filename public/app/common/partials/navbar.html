@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default" ng-controller="NavbarController as vm">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="root">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse" ng-show="vm.user">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                        {{ vm.user.username }} 
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" ui-sref="action({ module: vm.module, page:'profile' })">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> プロフィール
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" ui-sref="action({ module: vm.module, page:'password' })">
+                                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> パスワード変更
+                            </a>
+                        </li>
+                        <li role="separator" class="divider" ng-show="vm.user.isAdmin"></li>
+                        <li ng-show="vm.user.isAdmin">
+                            <a href="#" ui-sref="action({ module: vm.module, page:'index' })">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ユーザ管理
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="#" ng-click="vm.logout()">
+                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> サインアウト
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

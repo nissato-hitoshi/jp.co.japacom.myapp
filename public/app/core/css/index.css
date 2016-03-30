@@ -1,0 +1,11 @@
+h3.bg-primary {
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+tbody tr {
+    cursor: pointer;
+    cursor: hand;
+}
+
